@@ -18,8 +18,13 @@ const Comment = () => {
   const likeHandler = () => {
     if (isLiked === false) {
       setIsLiked(true);
+      setLikes(likes + 1);
     } else {
       setIsLiked(false);
+      if (likes <= 0);
+      if (likes > 0) {
+        setLikes(likes - 1);
+      }
     }
   };
 
@@ -29,14 +34,10 @@ const Comment = () => {
     } else {
       var makeComments = [
         ...allComments,
-        { id: user, title: ti, content: cont, comments: com, likes: li }
+        { id: user, title: ti, content: cont, comments: com, likes: li },
       ];
       setAllComments(makeComments);
     }
-  };
-
-  const likeCount = (likeCount) => {
-    likeCount + 1;
   };
 
   console.log(allComments);
@@ -54,7 +55,7 @@ const Comment = () => {
                 <div
                   class="rounded p-2 text-start"
                   style={{
-                    backgroundColor: "#D4D8E8"
+                    backgroundColor: "#D4D8E8",
                   }}
                 >
                   <span style={{ fontWeight: "bold" }}>{e.id} </span>
@@ -66,11 +67,11 @@ const Comment = () => {
                     {isLiked ? (
                       <div style={{ color: "#3b5998" }}>
                         <span>liked</span>
-                        <span class="p-1">{likeCount(likes)}</span>
+                        <span class="p-1">{likes}</span>
                       </div>
                     ) : (
                       <div>
-                        <span class="p-1">like</span>
+                        <span class="p-1">likes</span>
                         <span style={{}}>{likes}</span>
                       </div>
                     )}
